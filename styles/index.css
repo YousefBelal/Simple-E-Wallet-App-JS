@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1f3a 2%, #0f1729 50%, #1a1e33 100%);
+}
+
+.custom-animation-duration {
+  animation-duration: 1.5s;
+}
+
+.mt-10 {
+  margin-top: 200px !important;
+}
+
+.main-align {
+  text-align: center;
+}
+
+.custom-text {
+  font-family: "Montserrat", sans-serif;
+  color: gray;
+}
+
+.custom-bg-col {
+  background: transparent;
+}
+
+.modal-bg {
+  background: linear-gradient(135deg, #1a1f3a 0%, #0f1729 50%, #1a1e33 100%);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.action-button {
+  position: relative;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.secondary {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.secondary::before {
+  background: #1e2640;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.secondary:hover::before {
+  background: #2a3354;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
+}
+
+.secondary:active::before {
+  transform: scale(0.95);
+}
+
+.primary {
+  width: 4rem;
+  height: 4rem;
+}
+
+.primary::before {
+  background: #3b82f6;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+}
+
+.primary:hover::before {
+  background: #60a5fa;
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.6);
+  transform: scale(1.08);
+}
+
+.primary:active::before {
+  transform: scale(0.95);
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f0f4f8;
+  width: 100%;
+  height: 100%;
+}
+
+.icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 2.5;
+}
+
+.primary .icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.button-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #f0f4f8;
+  letter-spacing: 0.02em;
+}
+
+.makeTransaction {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.64);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  .content {
+    width: 500px;
+    background-color: white;
+    animation-duration: 300ms;
+  }
+}
+
+.custom-input {
+  width: 55%;
+  border-radius: 5px;
+  border: 2px solid
+    linear-gradient(135deg, #1a1f3a 0%, #0f1729 50%, #1a1e33 100%);
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.filter-button-group {
+  display: flex;
+  gap: 0.75rem;
+  background: rgba(30, 38, 64, 0.5);
+  padding: 0.5rem;
+  border-radius: 2rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blu(10px);
+}
+
+.filter-button {
+  position: relative;
+  border: none;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #a8b3cf;
+  letter-spacing: 0.02em;
+}
+
+.filter-button:hover {
+  background: rgba(42, 51, 84, 0.6);
+  color: #e2e8f0;
+}
+
+.filter-button.active {
+  background: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.green {
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+.status-dot.red {
+  background: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+}
+
+.recentTransactions {
+  width: 85%;
+  height: 15vh;
+  background: transparent;
+  color: grey;
+  overflow: scroll;
+}

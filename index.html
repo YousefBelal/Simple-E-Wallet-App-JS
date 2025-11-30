@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.css"
+      integrity="sha512-zylce7fP6h4usg536JBTRj2rt7q22Z0qicHSlgSK53Irtfkz37ate3KCQ59du+aXZV6R3yyL2X1LyGKBEUMZaw=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <div
+      class="m-auto mt-10 custom-bg-col rounded p-3 d-flex flex-column justify-content-center gap-3 col-12 col-md-4 animate__animated animate__fadeInDown custom-animation-duration"
+    >
+      <h4 class="main-align custom-text">
+        Current Wallet Balance <br /><span class="text-white">----</span>
+      </h4>
+      <div class="container">
+        <div class="button-group">
+          <button
+            class="action-button secondary"
+            aria-label="Deposit"
+            onclick="openModal(`Deposit`)"
+          >
+            <div class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
+            </div>
+          </button>
+          <span class="button-label">Deposit</span>
+        </div>
+
+        <div class="button-group">
+          <button
+            class="action-button secondary"
+            aria-label="Withdraw"
+            onclick="openModal(`Withdraw`)"
+          >
+            <div class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 10l7-7m0 0l7 7m-7-7v18"
+                />
+              </svg>
+            </div>
+          </button>
+          <span class="button-label">Withdraw</span>
+        </div>
+      </div>
+    </div>
+    <div class="filter-container">
+      <div class="filter-button-group">
+        <button
+          class="filter-button"
+          aria-label="All transactions"
+          onclick="showAllTransactions()"
+          id="allTransactions"
+        >
+          All
+        </button>
+        <button
+          class="filter-button"
+          aria-label="Deposit transactions"
+          onclick="showDepositTransactions()"
+          id="depositTransactions"
+        >
+          <span class="status-dot green"></span>
+          Deposit
+        </button>
+        <button
+          class="filter-button"
+          aria-label="Withdraw transactions"
+          onclick="showWithdrawTransactions()"
+          id="withdrawTransactions"
+        >
+          <span class="status-dot red"></span>
+          Withdraw
+        </button>
+        <button
+          class="filter-button"
+          aria-label="Recent transactions"
+          onclick="showRecentTransactions()"
+          id="recentTransactionsbtn"
+        >
+          <svg
+            class="status-dot"
+            width="8"
+            height="8"
+            viewBox="0 0 8 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="4" cy="4" r="3.5" stroke="#6366f1" stroke-width="1" />
+            <path
+              d="M4 2V4L5.5 5.5"
+              stroke="#6366f1"
+              stroke-width="1"
+              stroke-linecap="round"
+            />
+          </svg>
+          Recent
+        </button>
+      </div>
+    </div>
+    <h4 class="custom-text custom-bg-col m-3" id="transactionsLabel">
+      Recent Transaction
+    </h4>
+    <div class="d-flex justify-content-center align-items-center">
+      <table
+        class="table-hover table-sm table-responsive custom-bg-col custom-text recentTransactions main-align"
+      >
+        <thead>
+          <tr>
+            <th>TRANS_ID</th>
+            <th>Before Balance($)</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>After Balance($)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="makeTransaction">
+      <div
+        onclick="event.stopPropagation()"
+        class="content animate__animated animate__zoomIn custom-animation-duration d-flex flex-column gap-3 p-3 rounded shadow modal-bg"
+      >
+        <h5 class="custom-text">----------</h5>
+        <div class="d-flex justify-content-center">
+          <input
+            placeholder="Enter Amount"
+            type="number"
+            class="custom-input form-control"
+            id="transactionAmount"
+          />
+        </div>
+        <div class="d-flex justify-content-center gap-2">
+          <button class="btn btn-primary col-2" onclick="makeTransaction()">
+            Confirm
+          </button>
+          <button class="btn btn-danger col-2" onclick="closeModal()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
+
+<!-- 
+  Balance : 4000 ;
+  deposit
+  withdraw
+-->
